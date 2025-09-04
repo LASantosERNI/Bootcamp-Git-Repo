@@ -1,0 +1,17 @@
+from PIL import Image
+
+def jpeg_to_pdf(jpeg_path, pdf_path):
+    """
+    Converts a JPEG image to a PDF file.
+
+    Args:
+        jpeg_path (str): Path to the input JPEG image.
+        pdf_path (str): Path to the output PDF file.
+    """
+    with Image.open(jpeg_path) as img:
+        # Convert to RGB in case image is in palette mode
+        rgb_img = img.convert('RGB')
+        rgb_img.save(pdf_path, "PDF")
+
+# Example usage:
+# jpeg_to_pdf("input.jpg", "output.pdf")
